@@ -1,7 +1,7 @@
 // SliderItem.tsx
 import { StyleSheet, Dimensions, View } from "react-native";
 import React from "react";
-import { ImageSliderType } from "./data";
+import { ImageSliderType } from "./slider-images";
 import { Image } from "expo-image";
 
 interface Props {

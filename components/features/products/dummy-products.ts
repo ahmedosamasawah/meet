@@ -1,17 +1,6 @@
-type ProductsType = {
-  id: number;
-  name: string;
-  image: any;
-  origin: string;
-  weight: number;
-  oldPrice: number;
-  newPrice: number;
-  discount: string;
-  favorite: boolean;
-  isAvailable: boolean;
-};
+import { Product } from "@/types/index";
 
-export const products: ProductsType[] = [
+export const dummyProducts: Product[] = [
   {
     id: 1,
     name: "Beef Tomahawk",

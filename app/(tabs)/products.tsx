@@ -1,31 +1,14 @@
-import Header from "@/components/ui/Header";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import OurProducts from "@/components/Products/OurProducts";
-import { Colors } from "@/constants/Colors";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import FilterButton from "@/components/ui/filterButton";
+import React from "react";
+
+import FilterButton from "@/components/common/FilterButton";
+import ScreenContainer from "@/components/layouts/ScreenContainer";
+import { default as OurProducts } from "@/components/features/products/Products";
 
 export default function Products() {
   return (
-    <View style={styles.productsScreenContainer}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={{ width: "90%", margin: "auto" }}
-      >
-        <OurProducts />
-      </ScrollView>
-      <Header title="منتجاتنا" />
+    <ScreenContainer title="منتجاتنا">
+      <OurProducts />
       <FilterButton />
-    </View>
+    </ScreenContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  productsScreenContainer: { paddingTop: 100, backgroundColor: "#fff" },
-});

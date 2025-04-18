@@ -6,12 +6,12 @@ export type ImageSliderType = {
 
 export const imageSlider: ImageSliderType[] = [
   {
-    img: require("./assets/meat-1.png"),
+    img: require("@/assets/images/meat-1.png"),
   },
   {
-    img: require("./assets/meat-2.jpg"),
+    img: require("@/assets/images/meat-2.jpg"),
   },
   {
-    img: require("./assets/meat-3.jpg"),
+    img: require("@/assets/images/meat-3.jpg"),
   },
 ];

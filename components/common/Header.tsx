@@ -1,24 +1,21 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { Colors } from "@/constants/Colors";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import { useRouter } from "expo-router";
 import Points from "./Points";
-import Entypo from "@expo/vector-icons/Entypo";
+import { useRouter } from "expo-router";
+import { Colors } from "@/constants/Colors";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 
 export default function Header({ title }: { title: string }) {
   const router = useRouter();
 
   return (
     <View style={[styles.headerContainer]}>
-      {/* points */}
       <View style={styles.headerLeft}>
         <Points />
         <Ionicons name="search-sharp" size={20} color={Colors.gold00} />
       </View>
 
-      {/* right navigation */}
       <View style={styles.rightNav}>
         <Pressable
           onPress={() => router.back()}
@@ -46,7 +43,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 100,
-    backgroundColor: "#fff", // Match your app's background
+    backgroundColor: "#fff",
   },
 
   headerLeft: {

@@ -1,15 +1,15 @@
-import { View, Text, StyleSheet } from "react-native";
 import React from "react";
-import { Colors } from "@/constants/Colors";
-import CategorySlider from "./categoriesSlider/CategorySlider";
-import { categoriesData } from "./categoriesSlider/data";
+import { View, Text, StyleSheet } from "react-native";
+
+import CategorySlider from "./CategorySlider";
+import { Colors } from "../../../constants/Colors";
+import { dummyCategories } from "./dummy-categories";
 
 export default function Categories() {
   return (
     <View style={styles.categoryContainer}>
       <Text style={styles.title}>أصنافنا</Text>
-      {/* slider of categories */}
-      <CategorySlider categories={categoriesData} />
+      <CategorySlider categories={dummyCategories} />
     </View>
   );
 }

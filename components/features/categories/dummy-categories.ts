@@ -1,14 +1,6 @@
-type CategoryImage = {
-  id: string;
-  image: string;
-};
+import { Category } from "@/types/index";
 
-export type CategoriesData = {
-  categoryName: string;
-  categoryImages: CategoryImage[];
-};
-
-export const categoriesData: CategoriesData[] = [
+export const dummyCategories: Category[] = [
   {
     categoryName: "أجبان وألبان",
     categoryImages: [

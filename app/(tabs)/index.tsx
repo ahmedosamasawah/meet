@@ -1,30 +1,23 @@
-import Categories from "@/components/Categories";
-import Header from "@/components/ui/Header";
-import Slider from "@/components/imageSlider/Slider";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import Slider from '@/components/features/slider/Slider';
+import ScreenContainer from '@/components/layouts/ScreenContainer';
+import Categories from '@/components/features/categories/Categories';
 
 export default function HomeScreen() {
   return (
-    <View>
-      <ScrollView style={styles.homeContainer}>
-        {/* slider */}
-        <View style={{ direction: "ltr" }}>
-          <Slider />
-        </View>
-
-        {/* categories */}
-        <Categories />
-      </ScrollView>
-      {/* header (trick 😍) */}
-      <Header title="الصفحة الرئيسية" />
-    </View>
+    <ScreenContainer title="الصفحة الرئيسية">
+      <View style={styles.sliderContainer}>
+        <Slider />
+      </View>
+      
+      <Categories />
+    </ScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  homeContainer: {
-    paddingTop: 70,
-    backgroundColor: "#fff",
-    
+  sliderContainer: {
+    marginBottom: 20,
   },
 });

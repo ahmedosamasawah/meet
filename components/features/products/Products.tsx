@@ -1,30 +1,27 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
-import { products } from "./products";
-import { Colors } from "@/constants/Colors";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+
 import { Image } from "expo-image";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import Entypo from "@expo/vector-icons/Entypo";
 import Svg, { Path } from "react-native-svg";
+import Entypo from "@expo/vector-icons/Entypo";
+import { dummyProducts } from "./dummy-products";
+import { Colors } from "../../../constants/Colors";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 export default function OurProducts() {
-  // handle add to cart
   function addToCart() {}
 
-  // handle add to favourite
-  const [favourites, setFavourites] = useState<number[]>([]);
-  function addToFavourite(id: number) {
-    if (favourites.includes(id)) {
-      setFavourites(favourites.filter((favouriteId) => favouriteId !== id));
-    } else {
-      setFavourites([...favourites, id]);
-    }
+  const [favorites, setFavorites] = useState<number[]>([]);
+  function addToFavorite(id: number) {
+    if (favorites.includes(id))
+      setFavorites(favorites.filter((favoriteId) => favoriteId !== id));
+    else setFavorites([...favorites, id]);
   }
 
   return (
     <View style={styles.productsContainer}>
-      {products.map((product) => (
+      {dummyProducts.map((product) => (
         <View key={product.id} style={styles.productItem}>
           <Image
             source={require("@/assets/images/product-meat.png")}
@@ -32,17 +29,14 @@ export default function OurProducts() {
             contentFit="cover"
           />
 
-          {/* discount & favourits */}
-          <View style={styles.favourits}>
-            {/* discount */}
+          <View style={styles.favorites}>
             <View style={styles.discount}>
               <Text style={styles.discountText}>{product.discount}</Text>
             </View>
-            {/* favourite button */}
-            <TouchableOpacity onPress={() => addToFavourite(product.id)}>
+            <TouchableOpacity onPress={() => addToFavorite(product.id)}>
               <MaterialIcons
                 name={
-                  favourites.includes(product.id)
+                  favorites.includes(product.id)
                     ? "favorite"
                     : "favorite-outline"
                 }
@@ -51,17 +45,13 @@ export default function OurProducts() {
               />
             </TouchableOpacity>
           </View>
-          {/* product name */}
           <Text style={styles.productName}>{product.name}</Text>
 
-          {/* weight & country */}
           <View style={styles.weightContainer}>
-            {/* flag */}
             <Image
               source={require("@/assets/images/country.png")}
               style={{ width: 20, height: 10 }}
             />
-            {/* weight number */}
             <View style={styles.weightNumberContainer}>
               <Text style={styles.weightText}>
                 {product.weight} <Text>كجم</Text>
@@ -73,7 +63,6 @@ export default function OurProducts() {
           </View>
           {/* prices */}
           <View style={styles.prices}>
-            {/* old price */}
             <View style={styles.price}>
               <Svg width="9" height="11" viewBox="0 0 9 11" fill="none">
                 <Path
@@ -87,7 +76,6 @@ export default function OurProducts() {
               </Svg>
               <Text style={styles.oldPriceNum}>{product.oldPrice}</Text>
             </View>
-            {/* new price */}
             <View style={styles.price}>
               <Svg width="9" height="11" viewBox="0 0 9 11" fill="none">
                 <Path
@@ -102,7 +90,6 @@ export default function OurProducts() {
               <Text style={styles.newPriceNum}>{product.newPrice}</Text>
             </View>
           </View>
-          {/* add shopping cart */}
           <View style={styles.CartIconContainer}>
             <TouchableOpacity style={styles.cartIcon} onPress={addToCart}>
               <MaterialCommunityIcons
@@ -127,11 +114,11 @@ const styles = StyleSheet.create({
   productItem: {
     backgroundColor: Colors.White10,
     width: "49%",
-    marginBottom: 10, // مسافة بين الصفوف
+    marginBottom: 10,
     borderRadius: 10,
     padding: 3,
   },
-  favourits: {
+  favorites: {
     position: "absolute",
     justifyContent: "space-between",
     width: "100%",
@@ -209,5 +196,4 @@ const styles = StyleSheet.create({
     padding: 6,
     borderRadius: 25,
   },
- 
 });

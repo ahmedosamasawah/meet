@@ -3,6 +3,8 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
+import { I18nManager } from "react-native";
+
 import "react-native-reanimated";
 import { SafeAreaView } from "react-native";
 
@@ -15,15 +17,13 @@ export default function RootLayout() {
     "Cairo-Bold": require("../assets/fonts/Cairo-Bold.ttf"),
   });
 
+  if (!I18nManager.isRTL) I18nManager.forceRTL(true);
+
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
+    if (loaded) SplashScreen.hideAsync();
   }, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
+  if (!loaded) return null;
 
   return (
     <SafeAreaView style={{ flex: 1 }}>

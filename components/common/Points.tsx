@@ -1,7 +1,7 @@
-import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { Colors } from "@/constants/Colors";
 import Svg, { Path } from "react-native-svg";
+import { View, Text, StyleSheet } from "react-native";
 
 export default function Points() {
   return (

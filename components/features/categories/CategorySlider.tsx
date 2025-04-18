@@ -1,16 +1,22 @@
-import { Colors } from "@/constants/Colors";
 import React, { useRef } from "react";
 import {
   View,
-  StyleSheet,
   Text,
-  TouchableOpacity,
   FlatList,
+  StyleSheet,
+  TouchableOpacity,
 } from "react-native";
-import Entypo from "@expo/vector-icons/Entypo";
-import { useRouter } from "expo-router";
-import Carousel from "react-native-reanimated-carousel";
+
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
+import { Colors } from "@/constants/Colors";
+import Entypo from "@expo/vector-icons/Entypo";
+import Carousel from "react-native-reanimated-carousel";
+
+type CarouselMethods = {
+  prev(): void;
+  next(): void;
+};
 
 type CategoryImage = {
   id: string;
@@ -26,7 +32,7 @@ const ITEM_WIDTH = 130;
 
 const CategoryRow = ({ categories }: { categories: CategoriesData[] }) => {
   const router = useRouter();
-  const carouselRefs = useRef<(Carousel<string> | null)[]>([]);
+  const carouselRefs = useRef<(CarouselMethods | null)[]>([]);
 
   const renderCategoryItem = ({
     item,

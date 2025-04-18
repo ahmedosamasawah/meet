@@ -1,10 +1,11 @@
 // Slider.tsx
 import React, { useState } from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
-import Carousel, { Pagination } from "react-native-reanimated-carousel";
-import { imageSlider } from "./data";
+
 import SliderItem from "./SliderItem";
 import { Colors } from "@/constants/Colors";
+import { imageSlider } from "./slider-images";
+import Carousel from "react-native-reanimated-carousel";
 
 const { width: screenWidth } = Dimensions.get("window");
 
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   activeDot: {
-    backgroundColor: "#000", // تقدر تخليها لون البراند بتاعك
+    backgroundColor: "#000",
     width: 8,
     height: 8,
     borderRadius: 6,
